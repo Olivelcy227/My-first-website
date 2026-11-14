@@ -12,7 +12,6 @@ const assurances = [
 export default function Hero() {
   return (
     <section
-      id="top"
       aria-labelledby="hero-heading"
       className="relative isolate overflow-hidden bg-ink-900 text-cream"
     >

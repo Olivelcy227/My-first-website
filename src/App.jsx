@@ -21,7 +21,7 @@ export default function App() {
 
       <Navbar />
 
-      <main id="main">
+      <main id="main" tabIndex={-1} className="focus:outline-none">
         <Hero />
         <StatBand />
         <Services />

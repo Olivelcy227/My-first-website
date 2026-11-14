@@ -119,15 +119,6 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Button
-              href="#contact"
-              variant="light"
-              size="sm"
-              className="hidden sm:inline-flex"
-            >
-              [Call to Action]
-            </Button>
-
             <button
               ref={toggleRef}
               type="button"

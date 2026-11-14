@@ -38,7 +38,7 @@ export default function Counter({
 
   return (
     <span ref={ref} className={className}>
-      <span aria-hidden="true">
+      <span aria-hidden="true" data-counter-display>
         {prefix}
         {display}
         {suffix}

@@ -42,7 +42,27 @@ src/
     Footer.jsx              CTA banner, link columns, contact
     ui/                     Button, Reveal, SectionHeading, Counter, Icons
 responsive-check.html       dev-only harness to preview fixed widths (?w=375|768|1280)
+scripts/bug-hunt.mjs        Playwright QA sweep — see below
 ```
+
+## Automated QA (bug hunt)
+
+`scripts/bug-hunt.mjs` runs a Playwright sweep against the dev server using the
+system Edge browser (`playwright-core`, no browser download):
+
+```bash
+npm run dev          # in one terminal
+node scripts/bug-hunt.mjs   # in another
+```
+
+It audits 375 / 768 / 1280 px plus a reduced-motion pass: console & page errors,
+failed requests, broken images and alt text, duplicate IDs, heading order,
+anchor targets, input labels, aria refs, horizontal overflow, sticky-header
+condensing, anchor-nav landing positions, the mobile menu (open / scroll-lock /
+Escape / focus return), the contact form (empty submit, bad email, success,
+reset), animated counters, the skip link, external link health, and
+`target=_blank` safety. Results print to the console and are saved to
+`bug-report.json`.
 
 ## Design system
 
