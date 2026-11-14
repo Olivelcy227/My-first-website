@@ -118,7 +118,7 @@ export default function Hero() {
             aria-hidden="true"
             className="absolute -right-2 top-10 hidden h-24 w-24 rotate-6 flex-col items-center justify-center rounded-full border border-dashed border-clay-400/40 bg-ink-950/70 backdrop-blur-sm sm:flex"
           >
-            <span className="font-serif text-2xl italic leading-none text-clay-300">BB</span>
+            <span className="font-serif text-3xl italic leading-none text-clay-300">O</span>
             <span className="mt-1.5 text-[7px] font-medium uppercase tracking-label text-cream/55">
               Procurement
             </span>

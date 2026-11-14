@@ -1,6 +1,7 @@
 import { brand, navigation } from "../data/site";
 import Button from "./ui/Button";
 import { Icon } from "./ui/Icons";
+import LogoMark from "./ui/LogoMark";
 import Reveal from "./ui/Reveal";
 
 const serviceLinks = [
@@ -48,9 +49,10 @@ export default function Footer() {
               href="#top"
               className="group inline-flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400 focus-visible:ring-offset-4 focus-visible:ring-offset-ink-950"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 bg-cream/5 transition-colors duration-500 group-hover:border-clay-400/70">
-                <span className="font-serif text-lg italic text-cream">B</span>
-              </span>
+              <LogoMark
+                className="h-11 w-11 transition-opacity duration-500 group-hover:opacity-90"
+                letterSize="text-xl"
+              />
               <span className="font-display text-base font-semibold tracking-tight">
                 Be Best
               </span>

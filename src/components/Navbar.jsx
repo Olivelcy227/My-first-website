@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { brand, navigation } from "../data/site";
 import { cn } from "../lib/cn";
 import { Icon } from "./ui/Icons";
+import LogoMark from "./ui/LogoMark";
 import Button from "./ui/Button";
 
 function Logo({ onClick }) {
@@ -11,16 +12,7 @@ function Logo({ onClick }) {
       onClick={onClick}
       className="group flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400 focus-visible:ring-offset-4 focus-visible:ring-offset-ink-950"
     >
-      <span
-        aria-hidden="true"
-        className="relative flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 bg-cream/5 transition-colors duration-500 ease-luxe group-hover:border-clay-400/70"
-      >
-        <span className="font-serif text-lg italic leading-none text-cream">B</span>
-        <span
-          aria-hidden="true"
-          className="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-clay-500"
-        />
-      </span>
+      <LogoMark className="h-10 w-10 transition-opacity duration-500 group-hover:opacity-90" />
       <span className="flex flex-col leading-none">
         <span className="font-display text-base font-semibold tracking-tight text-cream">
           Be Best
