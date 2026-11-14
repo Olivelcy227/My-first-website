@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Responsive check (dev harness)</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #171512;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id="frame" src="/" title="Site preview at fixed width"></iframe>
+    <script>
+      // Dev-only harness: renders the site in an iframe at an exact layout width
+      // (?w=375|768|1280) and scales it to fit the current window.
+      const params = new URLSearchParams(location.search);
+      const width = parseInt(params.get("w") || "1280", 10);
+      const height = parseInt(params.get("h") || "16000", 10);
+      const frame = document.getElementById("frame");
+      frame.style.width = width + "px";
+      frame.style.height = height + "px";
+      frame.style.border = "0";
+      frame.style.display = "block";
+      const zoom = Math.min(1, (window.innerWidth - 8) / width);
+      frame.style.zoom = zoom;
+      window.__layoutWidth = width;
+      window.__zoom = zoom;
+    </script>
+  </body>
+</html>
