@@ -64,6 +64,13 @@ reset), animated counters, the skip link, external link health, and
 `target=_blank` safety. Results print to the console and are saved to
 `bug-report.json`.
 
+`scripts/screenshots.mjs` captures the same states as PNGs into `screenshots/`
+(viewport, full-page, element, clip, mobile menu open — at 375 / 768 / 1280):
+
+```bash
+node scripts/screenshots.mjs
+```
+
 ## Design system
 
 - **Palette** — cream `#F6F1EA`, ink `#2E2A26` (+950 `#171512`), clay accent

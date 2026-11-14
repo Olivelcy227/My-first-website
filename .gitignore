@@ -5,6 +5,7 @@ dist-ssr
 .DS_Store
 .vite
 bug-report.json
+screenshots
 
 # Editor
 .vscode/*
