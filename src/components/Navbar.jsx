@@ -5,19 +5,32 @@ import { Icon } from "./ui/Icons";
 import LogoMark from "./ui/LogoMark";
 import Button from "./ui/Button";
 
-function Logo({ onClick }) {
+function Logo({ onClick, onDark }) {
   return (
     <a
       href="#top"
       onClick={onClick}
       className="group flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400 focus-visible:ring-offset-4 focus-visible:ring-offset-ink-950"
     >
-      <LogoMark className="h-10 w-10 transition-opacity duration-500 group-hover:opacity-90" />
+      <LogoMark
+        tone={onDark ? "dark" : "light"}
+        className="h-10 w-10 transition-opacity duration-500 group-hover:opacity-90"
+      />
       <span className="flex flex-col leading-none">
-        <span className="font-display text-base font-semibold tracking-tight text-cream">
+        <span
+          className={cn(
+            "font-display text-base font-semibold tracking-tight transition-colors duration-500",
+            onDark ? "text-cream" : "text-ink",
+          )}
+        >
           Be Best
         </span>
-        <span className="mt-1 text-[8px] font-medium uppercase tracking-label text-cream/55">
+        <span
+          className={cn(
+            "mt-1 text-[8px] font-medium uppercase tracking-label transition-colors duration-500",
+            onDark ? "text-cream/55" : "text-ink/55",
+          )}
+        >
           Procurement
         </span>
       </span>
@@ -30,6 +43,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleRef = useRef(null);
+  const onDark = scrolled || open; // header sits on a dark surface
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -66,34 +80,17 @@ export default function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-40 transition-all duration-500 ease-luxe",
           scrolled || open
-            ? "bg-ink-950/95 shadow-[0_18px_50px_-30px_rgba(0,0,0,0.9)] backdrop-blur-md"
-            : "bg-transparent",
+            ? "border-b border-cream/10 bg-ink-950/95 backdrop-blur-md"
+            : "border-b border-transparent bg-transparent",
         )}
       >
-        <div
-          className={cn(
-            "hidden overflow-hidden border-b border-cream/10 transition-all duration-500 ease-luxe md:block",
-            scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100",
-          )}
-        >
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-2.5 text-[9px] font-medium uppercase tracking-label text-cream/55 lg:px-10">
-            <p>{brand.tagline} · Independent procurement consultancy for growing businesses</p>
-            <a
-              href={`mailto:${brand.email}`}
-              className="transition-colors duration-300 hover:text-clay-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400"
-            >
-              {brand.email}
-            </a>
-          </div>
-        </div>
-
         <div
           className={cn(
             "mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 ease-luxe lg:px-10",
             scrolled ? "h-16" : "h-20",
           )}
         >
-          <Logo onClick={close} />
+          <Logo onClick={close} onDark={onDark} />
 
           <nav aria-label="Primary" className="hidden lg:block">
             <ul className="flex items-center gap-9">
@@ -101,7 +98,12 @@ export default function Navbar() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="relative py-2 text-[10px] font-semibold uppercase tracking-label text-cream/70 transition-colors duration-300 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-clay-400 after:transition-all after:duration-500 hover:text-cream hover:after:w-full focus-visible:text-cream focus-visible:outline-none focus-visible:after:w-full"
+                    className={cn(
+                      "relative py-2 text-[10px] font-semibold uppercase tracking-label transition-colors duration-300 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-clay-400 after:transition-all after:duration-500 hover:after:w-full focus-visible:outline-none focus-visible:after:w-full",
+                      onDark
+                        ? "text-cream/70 hover:text-cream focus-visible:text-cream"
+                        : "text-ink/70 hover:text-ink focus-visible:text-ink",
+                    )}
                   >
                     {item.label}
                   </a>
@@ -110,19 +112,22 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-3">
-            <button
-              ref={toggleRef}
-              type="button"
-              onClick={() => setOpen((value) => !value)}
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              aria-label={open ? "Close menu" : "Open menu"}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 text-cream transition-colors duration-300 hover:border-clay-400/70 hover:text-clay-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400 lg:hidden"
-            >
-              <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
-            </button>
-          </div>
+          <button
+            ref={toggleRef}
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            className={cn(
+              "flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400 lg:hidden",
+              onDark
+                ? "border-cream/20 text-cream hover:border-clay-400/70 hover:text-clay-300"
+                : "border-ink/25 text-ink hover:border-clay-700 hover:text-clay-700",
+            )}
+          >
+            <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
+          </button>
         </div>
       </header>
 
@@ -134,10 +139,6 @@ export default function Navbar() {
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       >
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 top-24 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(201,111,74,0.2),transparent_70%)] blur-2xl"
-        />
         <nav
           aria-label="Mobile"
           className={cn(
@@ -156,7 +157,7 @@ export default function Navbar() {
                   <span className="font-display text-2xl font-medium tracking-tight text-cream transition-colors duration-300 group-hover:text-clay-300">
                     {item.label}
                   </span>
-                  <span className="font-serif text-sm italic text-cream/30">
+                  <span className="font-serif text-sm italic text-cream/35">
                     0{index + 1}
                   </span>
                 </a>

@@ -2,16 +2,37 @@
  * Luxury monogram badge — a serif italic "O" set inside fine concentric
  * rings with a diamond accent at the crown (Cartier-style seal).
  * Decorative only: the parent link carries the accessible name.
+ * `tone` picks ring/letter color for dark ("dark") or light ("light") surfaces.
  */
-export default function LogoMark({ className = "h-10 w-10", letterSize = "text-lg" }) {
+export default function LogoMark({
+  className = "h-10 w-10",
+  letterSize = "text-lg",
+  tone = "dark",
+}) {
+  const light = tone === "light";
+
   return (
     <span
       aria-hidden="true"
       className={`relative inline-flex shrink-0 items-center justify-center ${className}`}
     >
       <svg viewBox="0 0 44 44" className="absolute inset-0 h-full w-full">
-        <circle cx="22" cy="22" r="19.5" fill="none" stroke="rgba(201,111,74,0.5)" strokeWidth="1" />
-        <circle cx="22" cy="22" r="15.75" fill="none" stroke="rgba(230,188,168,0.9)" strokeWidth="1.2" />
+        <circle
+          cx="22"
+          cy="22"
+          r="19.5"
+          fill="none"
+          stroke={light ? "rgba(46,42,38,0.4)" : "rgba(246,241,234,0.45)"}
+          strokeWidth="1"
+        />
+        <circle
+          cx="22"
+          cy="22"
+          r="15.75"
+          fill="none"
+          stroke={light ? "rgba(46,42,38,0.8)" : "rgba(246,241,234,0.9)"}
+          strokeWidth="1.2"
+        />
         <rect
           x="20.7"
           y="1.2"
@@ -22,7 +43,9 @@ export default function LogoMark({ className = "h-10 w-10", letterSize = "text-l
         />
       </svg>
       <span
-        className={`relative font-serif italic leading-none text-cream ${letterSize}`}
+        className={`relative font-serif italic leading-none ${letterSize} ${
+          light ? "text-ink" : "text-cream"
+        }`}
       >
         O
       </span>

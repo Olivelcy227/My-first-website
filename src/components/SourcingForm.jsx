@@ -97,10 +97,10 @@ export default function SourcingForm() {
 
   const fieldClass = (name) =>
     cn(
-      "w-full rounded-xl border bg-cream-50 px-4 py-3 text-sm text-ink transition-colors duration-300 placeholder:text-ink/35 focus:bg-white focus:outline-none focus:ring-2",
+      "w-full border-0 border-b border-ink/20 bg-transparent px-0 py-3 text-sm text-ink transition-colors duration-300 placeholder:text-ink/35 focus:border-clay-700 focus:outline-none focus:ring-0",
       errors[name]
-        ? "border-clay-600 focus:border-clay-600 focus:ring-clay-600/20"
-        : "border-ink/15 focus:border-clay focus:ring-clay/20",
+        ? "border-clay-700 focus:border-clay-700"
+        : "border-ink/20 focus:border-clay-700",
     );
 
   const describedBy = (name, hint) =>
@@ -263,7 +263,7 @@ export default function SourcingForm() {
             onChange={(event) => update("consent", event.target.checked)}
             aria-invalid={Boolean(errors.consent)}
             aria-describedby={describedBy("consent")}
-            className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-ink/30 accent-clay-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400 focus-visible:ring-offset-2"
+            className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded-none border-ink/30 accent-clay-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400 focus-visible:ring-offset-2"
             required
           />
           <span>

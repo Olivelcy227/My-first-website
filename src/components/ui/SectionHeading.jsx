@@ -3,6 +3,7 @@ import Reveal from "./Reveal";
 
 export default function SectionHeading({
   id,
+  index,
   eyebrow,
   title,
   description,
@@ -23,9 +24,10 @@ export default function SectionHeading({
             centered && "justify-center",
           )}
         >
+          {index && <span aria-hidden="true">{index}</span>}
           <span
             aria-hidden="true"
-            className={cn("h-px w-8", dark ? "bg-clay-400/60" : "bg-clay-700/40")}
+            className={cn("h-px w-8", dark ? "bg-clay-400/50" : "bg-clay-700/40")}
           />
           {eyebrow}
         </Reveal>
@@ -35,7 +37,7 @@ export default function SectionHeading({
         <h2
           id={id}
           className={cn(
-            "mt-5 text-balance font-display text-3xl font-semibold leading-[1.08] tracking-tight sm:text-4xl lg:text-[2.85rem]",
+            "mt-6 text-balance font-display text-3xl font-medium leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.7rem]",
             dark ? "text-cream" : "text-ink",
           )}
         >
@@ -48,7 +50,7 @@ export default function SectionHeading({
           <p
             className={cn(
               "mt-6 max-w-2xl text-[0.95rem] leading-relaxed sm:text-base",
-              dark ? "text-cream/65" : "text-ink/65",
+              dark ? "text-cream/60" : "text-ink/60",
               centered && "mx-auto",
             )}
           >

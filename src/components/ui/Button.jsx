@@ -3,14 +3,14 @@ import { Icon } from "./Icons";
 
 const variants = {
   primary:
-    "bg-ink text-cream shadow-lift hover:-translate-y-0.5 hover:bg-ink-900 hover:shadow-[0_28px_50px_-24px_rgba(46,42,38,0.6)]",
+    "border border-ink bg-ink text-cream hover:border-clay-700 hover:bg-clay-700",
   light:
-    "bg-cream text-ink shadow-lift hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_28px_50px_-26px_rgba(0,0,0,0.5)]",
+    "border border-cream/60 bg-cream text-ink hover:border-cream hover:bg-white",
   outline:
-    "border border-ink/20 text-ink hover:border-clay hover:bg-clay/5 hover:text-clay-700",
+    "border border-ink/25 text-ink hover:border-clay-700 hover:text-clay-700",
   outlineLight:
-    "border border-cream/25 text-cream hover:border-clay-400 hover:bg-cream/5 hover:text-clay-300",
-  link: "px-0 py-0 text-ink hover:text-clay-700",
+    "border border-cream/30 text-cream hover:border-clay-400 hover:text-clay-300",
+  link: "border-0 px-0 py-0 text-ink hover:text-clay-700",
 };
 
 const sizes = {
@@ -35,7 +35,7 @@ export default function Button({
     <Tag
       href={href}
       className={cn(
-        "group inline-flex items-center justify-center gap-3 rounded-full font-semibold uppercase tracking-label transition-all duration-500 ease-luxe",
+        "group inline-flex items-center justify-center gap-3 font-semibold uppercase tracking-label transition-colors duration-500 ease-luxe",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400 focus-visible:ring-offset-0",
         "disabled:pointer-events-none disabled:opacity-60",
         variants[variant],

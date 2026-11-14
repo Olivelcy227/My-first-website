@@ -1,6 +1,6 @@
 # Be Best — single-page website
 
-> **Your best choice of life.** Procurement consultancy for SMEs: one consolidated
+> **Your best solution for vendor selection.** Procurement consultancy for SMEs: one consolidated
 > sourcing request, one fit-for-purpose recommendation.
 
 Production-ready single-page site built with **React 19 + Vite + Tailwind CSS 3**

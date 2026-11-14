@@ -107,9 +107,9 @@ async function settle(page, { reduced = false } = {}) {
 
   // just the sticky header
   await page.locator("header").screenshot({ path: `${OUT}/element-header.png` });
-  // just the featured service card
-  await page.locator("#services article").first().screenshot({
-    path: `${OUT}/element-service-card.png`,
+  // just the featured service band
+  await page.locator("#services ul li").first().screenshot({
+    path: `${OUT}/element-service-row.png`,
   });
   // arbitrary region of the viewport
   await page.screenshot({

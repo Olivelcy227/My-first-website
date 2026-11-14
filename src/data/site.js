@@ -1,6 +1,6 @@
 export const brand = {
   name: "Be Best",
-  tagline: "Your best choice of life",
+  tagline: "Your best solution for vendor selection",
   email: "hello@bebest.co",
   phone: "+44 20 7946 0958",
   phoneHref: "tel:+442079460958",

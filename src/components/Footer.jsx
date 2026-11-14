@@ -1,7 +1,6 @@
 import { brand, navigation } from "../data/site";
 import Button from "./ui/Button";
 import { Icon } from "./ui/Icons";
-import LogoMark from "./ui/LogoMark";
 import Reveal from "./ui/Reveal";
 
 const serviceLinks = [
@@ -20,10 +19,10 @@ export default function Footer() {
         <div className="grid gap-10 border-b border-cream/10 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:py-20">
           <Reveal>
             <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-label text-clay-400">
-              <span aria-hidden="true" className="h-px w-8 bg-clay-400/60" />
+              <span aria-hidden="true" className="h-px w-8 bg-clay-400/50" />
               {brand.name}
             </p>
-            <h2 className="mt-5 text-balance font-display text-3xl font-semibold leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
+            <h2 className="mt-6 text-balance font-display text-3xl font-medium leading-[1.12] tracking-tight sm:text-4xl lg:text-5xl">
               {brand.tagline},
               <br />
               <span className="font-serif font-normal italic text-clay-300">
@@ -33,11 +32,11 @@ export default function Footer() {
           </Reveal>
 
           <Reveal delay={120} className="lg:justify-self-end lg:text-right">
-            <p className="max-w-sm text-sm leading-relaxed text-cream/55 lg:ml-auto">
-              Consolidate the request. Compare what actually fits. Decide with the
-              reasoning in front of you.
+            <p className="max-w-sm text-sm leading-relaxed text-cream/60 lg:ml-auto">
+              Consolidate the request. Compare what actually fits. Decide with
+              the reasoning in front of you.
             </p>
-            <Button href="#contact" variant="light" size="lg" className="mt-7">
+            <Button href="#contact" variant="light" size="lg" className="mt-8">
               [Call to Action]
             </Button>
           </Reveal>
@@ -49,15 +48,14 @@ export default function Footer() {
               href="#top"
               className="group inline-flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400 focus-visible:ring-offset-4 focus-visible:ring-offset-ink-950"
             >
-              <LogoMark
-                className="h-11 w-11 transition-opacity duration-500 group-hover:opacity-90"
-                letterSize="text-xl"
-              />
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 bg-cream/5 transition-colors duration-500 group-hover:border-clay-400/70">
+                <span className="font-serif text-lg italic text-cream">O</span>
+              </span>
               <span className="font-display text-base font-semibold tracking-tight">
                 Be Best
               </span>
             </a>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/50">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/55">
               Independent procurement consultancy for small and mid-sized teams.
               One consolidated request, one fit-for-purpose decision.
             </p>
@@ -67,7 +65,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Be Best on Instagram"
-              className="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full border border-cream/15 text-cream/70 transition-colors duration-300 hover:border-clay-400/60 hover:text-clay-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400"
+              className="mt-6 inline-flex h-10 w-10 items-center justify-center border border-cream/15 text-cream/70 transition-colors duration-300 hover:border-clay-400/60 hover:text-clay-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-400"
             >
               <Icon name="instagram" className="h-4 w-4" />
             </a>
@@ -134,7 +132,16 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+      </div>
 
+      {/* Giant wordmark — the quiet signature */}
+      <div aria-hidden="true" className="overflow-hidden border-t border-cream/10 px-2 pt-8">
+        <p className="select-none text-center font-display text-[13.5vw] font-semibold leading-[0.9] tracking-tight text-cream/10">
+          BE&nbsp;BEST
+        </p>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex flex-col gap-4 border-t border-cream/10 py-6 text-[9px] uppercase tracking-wide2 text-cream/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Be Best. All rights reserved.</p>
           <div className="flex items-center gap-6">

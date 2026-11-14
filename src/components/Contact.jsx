@@ -31,17 +31,13 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative isolate scroll-mt-24 overflow-hidden bg-ink-900 py-20 text-cream sm:py-24 lg:py-28"
+      className="scroll-mt-24 bg-ink-900 py-24 text-cream sm:py-28 lg:py-32"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-40 top-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(201,111,74,0.18),transparent_68%)] blur-2xl"
-      />
-
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-16 lg:px-10">
+      <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-20 lg:px-10">
         <div className="lg:sticky lg:top-28">
           <SectionHeading
             id="contact-heading"
+            index="06"
             tone="dark"
             eyebrow="Contact"
             title={
@@ -66,7 +62,7 @@ export default function Contact() {
                   className="group flex items-center justify-between gap-4 border-b border-cream/10 py-4 transition-colors duration-300 focus-visible:outline-none focus-visible:text-clay-300"
                 >
                   <span className="flex items-center gap-4">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cream/15 text-clay-400 transition-colors duration-300 group-hover:border-clay-400/50">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-cream/15 text-clay-400 transition-colors duration-300 group-hover:border-clay-400/50">
                       <Icon name={row.icon} className="h-4 w-4" />
                     </span>
                     <span>
@@ -94,22 +90,14 @@ export default function Contact() {
         </div>
 
         <Reveal delay={120}>
-          <div className="rounded-4xl bg-cream p-6 text-ink shadow-lift sm:p-8 lg:p-10">
-            <div className="mb-7 flex items-start justify-between gap-6">
-              <div>
-                <p className="text-[9px] font-semibold uppercase tracking-label text-clay-700">
-                  Sourcing request
-                </p>
-                <p className="mt-2 text-xs leading-relaxed text-ink/50">
-                  Fields marked <span className="text-clay-700">*</span> are required.
-                </p>
-              </div>
-              <span
-                aria-hidden="true"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 text-clay-600"
-              >
-                <Icon name="sparkle" className="h-4 w-4" />
-              </span>
+          <div className="border border-ink/10 bg-cream p-6 text-ink sm:p-8 lg:p-10">
+            <div className="mb-8 border-b border-ink/10 pb-6">
+              <p className="text-[9px] font-semibold uppercase tracking-label text-clay-700">
+                Sourcing request
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-ink/55">
+                Fields marked <span className="text-clay-700">*</span> are required.
+              </p>
             </div>
 
             <SourcingForm />
